@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio professionnel d'Enzo Morelli — Étudiant en BUT GEII, spécialité Électricité & Maîtrise de l'Énergie à l'IUT de Tarbes." />
+  <title>Enzo Morelli — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <a href="#accueil" class="nav-logo">
+        <span class="logo-em">EM</span>
+        <span class="logo-dot"></span>
+      </a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil" class="nav-link active" data-section="accueil">Accueil</a></li>
+        <li><a href="#parcours" class="nav-link" data-section="parcours">Mon Parcours</a></li>
+        <li><a href="#projets" class="nav-link" data-section="projets">Mes Projets</a></li>
+        <li><a href="#competences" class="nav-link" data-section="competences">Compétences</a></li>
+        <li><a href="#activites" class="nav-link" data-section="activites">Centres d'activités</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="accueil" class="hero">
+    <div class="hero-bg-overlay"></div>
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">BUT GEII · IUT de Tarbes</div>
+        <h1 class="hero-title">
+          Enzo <span class="accent">Morelli</span>
+        </h1>
+        <p class="hero-subtitle">Étudiant en Génie Électrique &amp; Informatique Industrielle</p>
+        <p class="hero-desc">
+          Je m'appelle Enzo Morelli, j'ai 19 ans et je suis en seconde année de BUT GEII option Électricité et Maîtrise
+          de l'Énergie (EME) à l'Institut Universitaire de Tarbes.
+          Ayant suivi un bac technologique STI2D (Sciences et Technologies de l'Industrie et du Développement
+          Durable), je me suis naturellement orienté vers le BUT GEII (Génie Électrique et Informatique
+          Industrielle). Ce parcours représentait en quelque sorte la suite logique de mes études. J'ai également
+          choisi de poursuivre dans cette voie car c'est un domaine qui me passionne et qui offre de réelles
+          perspectives d'avenir. Tout ce qui a trait à l'énergie ou à l'électricité est essentiel pour notre futur.
+        </p>
+        <div class="hero-actions">
+          <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+          <a href="https://cdn.gamma.app/8u8rpw9zr9etl2c/62108ce747ef4284b0df82ac28de9295/original/CV_2025-11-10_Enzo_MORELLI.pdf" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger mon CV
+          </a>
+        </div>
+        <div class="hero-scroll-hint">
+          <span>Scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+      <div class="hero-portrait-wrap">
+        <img src="images/photo-enzo.jpg" alt="Portrait Enzo Morelli" class="hero-portrait" />
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Projets majeurs</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Ans de sport de combat</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">2</span>
+        <span class="stat-label">Années BUT GEII</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARCOURS ===== -->
+  <section id="parcours" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Mon Parcours</span>
+        <h2 class="section-title">Formation &amp; Expériences</h2>
+        <p class="section-desc">Un parcours orienté technique, de la théorie à la pratique.</p>
+      </div>
+
+      <div class="parcours-grid">
+        <!-- FORMATION -->
+        <div class="parcours-col">
+          <h3 class="col-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Formation
+          </h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">2024 – 2027</span>
+                <h4 class="timeline-title">BUT Génie Électrique et Informatique Industrielle</h4>
+                <p class="timeline-place">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  IUT de Tarbes
+                </p>
+                <p class="timeline-desc">Option Électricité &amp; Maîtrise de l'Énergie (EME). Projets robotiques, automatisme, électrotechnique et informatique industrielle.</p>
+                <div class="timeline-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Arduino</span>
+                  <span class="tag">Automatisme</span>
+                  <span class="tag">Électronique</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">2022 – 2024</span>
+                <h4 class="timeline-title">Baccalauréat STI2D</h4>
+                <p class="timeline-place">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Lycée Paul Mathou — Gourdan-Polignan
+                </p>
+                <p class="timeline-desc">Sciences et Technologies de l'Industrie et du Développement Durable. Spécialité Énergie.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">2020 – 2021</span>
+                <h4 class="timeline-title">Brevet des Collèges</h4>
+                <p class="timeline-place">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Collège Bertrand Laralde — Montréjeau
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXPÉRIENCES -->
+        <div class="parcours-col">
+          <h3 class="col-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Expériences Professionnelles
+          </h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot accent"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">Avril 2026 – Juin 2026</span>
+                <h4 class="timeline-title">Stagiaire Chargé d'Études Réseaux (10 semaines)</h4>
+                <p class="timeline-place">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  ENEDIS Saint-Gaudens
+                </p>
+                <div class="timeline-desc">
+                  <p><strong>Études techniques &amp; Chiffrage :</strong> Analyse des besoins et conception de projets de création/renouvellement d’ouvrages de distribution électrique.</p>
+                  <p><strong>Gestion de projet :</strong> Coordination des intervenants internes/externes, programmation et suivi de chantier jusqu'à la mise en service.</p>
+                  <p><strong>Relationnel Client :</strong> Interface directe avec les nouveaux clients pour le suivi technique des raccordements.</p>
+                  <p><strong>Contrôle Qualité :</strong> Réception des chantiers et vérification de la conformité aux règles techniques en vigueur.</p>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot accent"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">Juillet 2025 – Janvier 2026</span>
+                <h4 class="timeline-title">Employé polyvalent</h4>
+                <p class="timeline-place">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  McDonald's Estancarbon
+                </p>
+                <ul class="timeline-desc" style="list-style-type: none; padding-left: 0; margin-top: 5px;">
+                  <li>— Préparation des produits en respectant les règles d'hygiène et de sécurité (cuisine)</li>
+                  <li>— Réapprovisionnement des stocks</li>
+                  <li>— Travail sous pression en heures de pointe</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot accent"></div>
+              <div class="timeline-body">
+                <span class="timeline-date">Juillet 2024 – Août 2024</span>
+                <h4 class="timeline-title">Employé municipal saisonnier</h4>
+                <p class="timeline-place">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Mairie Montréjeau
+                </p>
+                <ul class="timeline-desc" style="list-style-type: none; padding-left: 0; margin-top: 5px;">
+                  <li>— Organisation d'un évènement (marché)</li>
+                  <li>— Entretien des rues, ramassage des déchets.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJETS ===== -->
+  <section id="projets" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Mes Projets</span>
+        <h2 class="section-title">Réalisations Techniques</h2>
+        <p class="section-desc">Des projets concrets qui illustrent mes compétences en GEII.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- ROBOT -->
+        <article class="project-card" id="prj-robot">
+          <div class="project-img-wrap">
+            <img src="images/robot.png" alt="Robot mobile" class="project-img" loading="lazy" />
+            <div class="project-img-overlay">
+              <span class="project-category">Robotique &amp; Automatisme</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-year">BUT S2</span>
+              <div class="project-status ok">Réussi</div>
+            </div>
+            <h3 class="project-title">Robot Mobile</h3>
+            <p class="project-excerpt">Programmation d'un robot en équipe afin qu'il suive un parcours. Filoguidage, lignoguidage et radioguidage.</p>
+            <div class="project-tech">
+              <span class="tech-badge">C/C++</span>
+              <span class="tech-badge">Capteurs</span>
+              <span class="tech-badge">Automatisme</span>
+            </div>
+            <button class="btn btn-details" data-modal="modal-robot">
+              Détails du projet
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- DRONE -->
+        <article class="project-card" id="prj-drone">
+          <div class="project-img-wrap">
+            <img src="images/drone.jfif" alt="Drone programmé en Python" class="project-img" loading="lazy" />
+            <div class="project-img-overlay">
+              <span class="project-category">Programmation &amp; IA</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-year">BUT S1</span>
+              <div class="project-status partial">En cours</div>
+            </div>
+            <h3 class="project-title">Projet Drone</h3>
+            <p class="project-excerpt">Programmation autonome d'un drone pour scanner le sol, trouver la couleur orange, et maintenir une distance précise.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">OpenCV</span>
+            </div>
+            <button class="btn btn-details" data-modal="modal-drone">
+              Détails du projet
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- DÉLESTAGE -->
+        <article class="project-card" id="prj-delestage">
+          <div class="project-img-wrap">
+            <img src="images/automate.jpg" alt="Armoire électrique système de délestage" class="project-img" loading="lazy" />
+            <div class="project-img-overlay">
+              <span class="project-category">Électrotechnique &amp; Énergie</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-year">BUT GEII</span>
+              <div class="project-status ok">Réalisé</div>
+            </div>
+            <h3 class="project-title">Système de Délestage et Gestion Énergétique</h3>
+            <p class="project-excerpt">Installer une gestion d'énergie dans un réseau électrique monophasé constitué d'un gradateur de lumière et d'un chauffage.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Électrotechnique</span>
+              <span class="tech-badge">Gradateur</span>
+            </div>
+            <button class="btn btn-details" data-modal="modal-delestage">
+              Détails du projet
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- SOUDURE -->
+        <article class="project-card" id="prj-soudure">
+          <div class="project-img-wrap">
+            <img src="images/carte-soudure.jpg" alt="Réalisation et test de cartes électroniques PCB" class="project-img" loading="lazy" />
+            <div class="project-img-overlay">
+              <span class="project-category">Électronique &amp; PCB</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-year">BUT GEII</span>
+              <div class="project-status ok">Réalisé</div>
+            </div>
+            <h3 class="project-title">Soudure et Tests</h3>
+            <p class="project-excerpt">Souder des composants sur une carte électronique et tester ces composants (tester la valeur des résistances, relever des tensions).</p>
+            <div class="project-tech">
+              <span class="tech-badge">Soudure</span>
+              <span class="tech-badge">Tests</span>
+              <span class="tech-badge">Oscilloscope</span>
+            </div>
+            <button class="btn btn-details" data-modal="modal-soudure">
+              Détails du projet
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPÉTENCES ===== -->
+  <section id="competences" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Compétences</span>
+        <h2 class="section-title">Savoir-Faire &amp; Savoir-Être</h2>
+        <p class="section-desc">Des compétences techniques solides, renforcées par des qualités humaines développées sur le terrain.</p>
+      </div>
+
+      <div class="skills-layout">
+
+        <!-- HARD SKILLS -->
+        <div class="skills-block">
+          <h3 class="skills-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Compétences Techniques GEII
+          </h3>
+          <div class="skills-cards">
+            <div class="skill-card">
+              <div class="skill-img-wrap">
+                <img src="images/oscilloscope.jpg" alt="Électrotechnique" />
+              </div>
+              <h4>Électrotechnique</h4>
+              <ul>
+                <li>Montage de circuits simples (résistance, condensateur)</li>
+                <li>Connaissances en électricité (appareils de mesure, formules, etc.)</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-img-wrap">
+                <img src="images/python_code.png" alt="Informatique Industrielle" />
+              </div>
+              <h4>Informatique Industrielle</h4>
+              <ul>
+                <li>Notions en programmation (Python, Arduino)</li>
+                <li>Maîtrise des outils bureautiques (Excel, Word)</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-img-wrap">
+                <img src="images/pompe.jpg" alt="Automatisme" />
+              </div>
+              <h4>Automatisme</h4>
+              <ul>
+                <li>Notions de base en langages de programmation (ST, FBD, Ladder)</li>
+                <li>Maîtrise des bases de Control Expert</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-img-wrap">
+                <img src="images/carte-soudure.jpg" alt="Électronique" />
+              </div>
+              <h4>Électronique</h4>
+              <ul>
+                <li>Capacité à souder des composants sur une carte (diodes, résistances, etc.)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOFT SKILLS -->
+        <div class="skills-block">
+          <h3 class="skills-block-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Savoir-Être
+          </h3>
+          <div class="softskills-list">
+            <div class="softskill-item">
+              <div class="softskill-icon">🤝</div>
+              <div>
+                <strong>Esprit d'équipe</strong>
+                <p>Grâce à mes projets en BUT GEII et mes expériences professionnelles, j'ai appris à collaborer efficacement, à écouter les autres et à construire des solutions en groupe.</p>
+              </div>
+            </div>
+            <div class="softskill-item">
+              <div class="softskill-icon">🥋</div>
+              <div>
+                <strong>Discipline et rigueur</strong>
+                <p>La pratique régulière des arts martiaux m'a inculqué une rigueur personnelle, notamment dans la gestion du temps, la régularité et l'effort constant, même en l'absence de motivation.</p>
+              </div>
+            </div>
+            <div class="softskill-item">
+              <div class="softskill-icon">🧠</div>
+              <div>
+                <strong>Capacité à gérer le stress</strong>
+                <p>Maintien du sang-froid et de l'efficacité en situation d'urgence. Capacité à convertir la pression en concentration, développée par la compétition sportive et le travail à rythme soutenu.</p>
+              </div>
+            </div>
+            <div class="softskill-item">
+              <div class="softskill-icon">🔧</div>
+              <div>
+                <strong>Autonomie</strong>
+                <p>Lors de mes projets, j'ai su travailler de manière autonome tout en respectant les consignes techniques et les échéances.</p>
+              </div>
+            </div>
+            <div class="softskill-item">
+              <div class="softskill-icon">🎯</div>
+              <div>
+                <strong>Sens des responsabilités</strong>
+                <p>Que ce soit en entreprise ou lors de projets scolaires, j'ai toujours pris mes tâches au sérieux, avec implication et fiabilité.</p>
+              </div>
+            </div>
+            <div class="softskill-item">
+              <div class="softskill-icon">🔍</div>
+              <div>
+                <strong>Curiosité et soif d'apprendre</strong>
+                <p>Mon orientation en GEII est le fruit d'une réelle curiosité pour les domaines techniques, que je continue d'explorer avec intérêt.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CENTRES D'ACTIVITÉS ===== -->
+  <section id="activites" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Centres d'activités</span>
+        <h2 class="section-title">Passions &amp; Loisirs</h2>
+        <p class="section-desc">J'ai de nombreux centres d'intérêt, mais le sport occupe une place particulière dans ma vie.</p>
+      </div>
+
+      <!-- ==== BLOC SPORT ==== -->
+      <div class="activite-bloc">
+        <div class="activite-bloc-header">
+          <span class="activite-icon">🥊</span>
+          <div>
+            <h3 class="activite-title">Sports de Combat</h3>
+            <p class="activite-subtitle">Arts martiaux &amp; condition physique — 3 ans de pratique</p>
+          </div>
+        </div>
+        <div class="sport-layout">
+          <div class="sport-text">
+            <p>
+              Depuis mon plus jeune âge, je pratique différentes disciplines sportives, et au fil du temps, une véritable passion s'est développée. Cela fait maintenant près de trois ans que je pratique les arts martiaux, en particulier le Kickboxing (boxe pieds-poings), mais aussi la lutte, le Jiu-Jitsu brésilien, ainsi que la musculation et la course à pied.
+            </p>
+            <p>
+              Ces disciplines m'ont énormément apporté. Elles m'ont d'abord inculqué le sens d'une compétition saine, où l'objectif n'est pas de surpasser les autres, mais de me dépasser moi-même et de toujours viser la meilleure version de moi-même. Les compétitions m'ont permis d'apprendre à gérer la pression et le stress — depuis que je pratique intensivement le sport, j'ai su transformer mon anxiété en énergie positive.
+            </p>
+            <div class="sport-disciplines">
+              <div class="sport-card">
+                <div class="sport-card-icon">🥊</div>
+                <div class="sport-card-info">
+                  <strong>Kickboxing</strong>
+                  <span>3 ans de pratique — discipline principale</span>
+                </div>
+              </div>
+              <div class="sport-card">
+                <div class="sport-card-icon">🤼</div>
+                <div class="sport-card-info">
+                  <strong>Lutte</strong>
+                  <span>Sport de combat complet — travail au sol et debout</span>
+                </div>
+              </div>
+              <div class="sport-card">
+                <div class="sport-card-icon">🥋</div>
+                <div class="sport-card-info">
+                  <strong>Jiu-Jitsu Brésilien</strong>
+                  <span>Discipline &amp; technique — soumission et contrôle</span>
+                </div>
+              </div>
+              <div class="sport-card">
+                <div class="sport-card-icon">🏋️</div>
+                <div class="sport-card-info">
+                  <strong>Musculation &amp; Course à pied</strong>
+                  <span>Condition physique générale et endurance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sport-carousel">
+            <div class="carousel-track" id="boxingCarousel">
+              <img src="images/boxe-salut.jpg" alt="Boxe Salut" class="carousel-slide slide-active" loading="lazy" />
+              <img src="images/BOXE-1.jpg" alt="Boxe 1" class="carousel-slide slide-next" loading="lazy" />
+              <img src="images/boxe-3.JPG" alt="Boxe 3" class="carousel-slide slide-prev" loading="lazy" />
+            </div>
+            <button class="carousel-btn prev-btn" aria-label="Image précédente" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="carousel-btn next-btn" aria-label="Image suivante" onclick="moveCarousel(1)">&#10095;</button>
+            <div class="sport-badge" style="z-index: 10;">
+              <strong>3 ans</strong>
+              <span>de sports de combat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==== BLOC VOYAGE ==== -->
+      <div class="activite-bloc">
+        <div class="activite-bloc-header">
+          <span class="activite-icon">✈️</span>
+          <div>
+            <h3 class="activite-title">Voyages &amp; Découvertes</h3>
+            <p class="activite-subtitle">Explorer de nouveaux horizons et cultures</p>
+          </div>
+        </div>
+        <div class="voyage-layout">
+          <div class="voyage-text">
+            <p>
+              Voyager est pour moi une source d'ouverture et d'enrichissement personnel. Partir à la découverte de nouveaux endroits, de nouvelles cultures et de nouvelles personnes est une expérience qui forge le caractère et élargit les horizons.
+            </p>
+          </div>
+          <div class="voyage-photos">
+            <div class="voyage-photo-wrap">
+              <img src="images/Trévii.jpg" alt="Voyage 1" class="voyage-photo" loading="lazy" />
+            </div>
+            <div class="voyage-photo-wrap" style="transform: translateY(2rem);">
+              <img src="images/popeye.jpg" alt="Voyage 2" class="voyage-photo" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==== BLOCS MINI : MOTO + IMPRESSION 3D ==== -->
+      <div class="activites-mini-grid">
+        <div class="activite-mini-card">
+          <div class="voyage-photo-wrap" style="width: 80px; height: 80px; flex-shrink: 0; box-shadow: none; border-radius: 12px; transform: none; margin-top: 0;">
+            <img src="images/moto.jpg" alt="Moto" class="voyage-photo" style="border-radius: 12px;" />
+          </div>
+          <div class="activite-mini-body">
+            <h4 class="activite-mini-title">Moto</h4>
+            <p class="activite-mini-desc">Passionné de deux-roues, la moto représente pour moi liberté et adrénaline. Une passion pour la mécanique et la route.</p>
+          </div>
+        </div>
+        <div class="activite-mini-card">
+          <div class="voyage-photo-wrap" style="width: 80px; height: 80px; flex-shrink: 0; box-shadow: none; border-radius: 12px; transform: none; margin-top: 0;">
+            <img src="images/impression.jpg" alt="Impression 3D" class="voyage-photo" style="border-radius: 12px; height: 100%; object-fit: cover;" />
+          </div>
+          <div class="activite-mini-body">
+            <h4 class="activite-mini-title">Impression 3D</h4>
+            <p class="activite-mini-desc">L'impression 3D me permet de concrétiser des idées en objets réels. Un lien direct entre la conception numérique et la fabrication physique.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Me Contacter</h2>
+        <p class="section-desc">Disponible pour toute opportunité de stage, d'alternance ou de collaboration technique.</p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info">
+          <a href="mailto:enzomirell31@gmail.com" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="contact-type">Email personnel</span>
+              <span class="contact-value">enzomirell31@gmail.com</span>
+            </div>
+          </a>
+          <a href="mailto:enzo.morelli@iut-tarbes.fr" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <span class="contact-type">Email IUT</span>
+              <span class="contact-value">enzo.morelli@iut-tarbes.fr</span>
+            </div>
+          </a>
+          <a href="tel:+33761436190" class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <span class="contact-type">Téléphone</span>
+              <span class="contact-value">07 61 43 61 90</span>
+            </div>
+          </a>
+          <a href="https://fr.linkedin.com/in/enzo-morelli-185282347" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon linkedin-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div>
+              <span class="contact-type">LinkedIn</span>
+              <span class="contact-value">enzo-morelli-185282347</span>
+            </div>
+          </a>
+          <div class="contact-card no-link">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact-type">Localisation</span>
+              <span class="contact-value">Saint-Paul / Tarbes (65)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-cta-block">
+          <div class="contact-cta-card">
+            <h3>Prêt à collaborer ?</h3>
+            <p>Étudiant en 2ème année de BUT GEII, je recherche des opportunités de stage ou d'alternance pour appliquer et enrichir mes compétences en génie électrique et informatique industrielle.</p>
+            <a href="mailto:enzomirell31@gmail.com" class="btn btn-primary contact-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Envoyer un message
+            </a>
+            <a href="https://cdn.gamma.app/8u8rpw9zr9etl2c/62108ce747ef4284b0df82ac28de9295/original/CV_2025-11-10_Enzo_MORELLI.pdf" target="_blank" rel="noopener" class="btn btn-outline contact-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Télécharger mon CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">EM.</span>
+        <p>Enzo Morelli · Étudiant BUT GEII<br>IUT de Tarbes — 2024-2027</p>
+      </div>
+      <div class="footer-center">
+        <nav class="footer-nav">
+          <a href="#accueil">Accueil</a>
+          <a href="#parcours">Parcours</a>
+          <a href="#projets">Projets</a>
+          <a href="#competences">Compétences</a>
+          <a href="#activites">Centres d'activités</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-right">
+        <a href="https://fr.linkedin.com/in/enzo-morelli-185282347" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:enzomirell31@gmail.com" class="footer-social" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Enzo Morelli · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- ===== MODALS ===== -->
+
+  <!-- Modal Robot -->
+  <div class="modal-overlay" id="modal-robot" role="dialog" aria-modal="true" aria-labelledby="modal-robot-title">
+    <div class="modal">
+      <button class="modal-close" aria-label="Fermer">&times;</button>
+      <div class="modal-header">
+        <span class="modal-category">Robotique &amp; Automatisme · BUT S2</span>
+        <h2 id="modal-robot-title">Robot Mobile Autonome</h2>
+        <div class="modal-status ok">Réussi</div>
+      </div>
+      <div class="modal-body">
+        <img src="images/robot.png" alt="Robot mobile" class="modal-img" loading="lazy" />
+        <p class="modal-intro">Pendant ce second semestre, comme projet final, j'ai dû programmer un robot afin qu'il suive un parcours. Le projet était réalisé en équipe de quatre élèves.</p>
+        <p>Le robot devait effectuer trois parcours : suivre un fil magnétique, suivre une ligne et réaliser un parcours radioguidé. J'explique cela plus en détail via le bouton ci-dessous.</p>
+        <p>Ces différents parcours étaient divisés en plusieurs parties, et chaque partie était elle-même décomposée en étapes.</p>
+        <p>Ce projet m'a permis d'acquérir des compétences en programmation, et de gestion du temps.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Drone -->
+  <div class="modal-overlay" id="modal-drone" role="dialog" aria-modal="true" aria-labelledby="modal-drone-title">
+    <div class="modal">
+      <button class="modal-close" aria-label="Fermer">&times;</button>
+      <div class="modal-header">
+        <span class="modal-category">Programmation &amp; Vision · BUT S1</span>
+        <h2 id="modal-drone-title">Drone RYZE Tello — Python</h2>
+        <div class="modal-status partial">Non finalisé</div>
+      </div>
+      <div class="modal-body">
+        <img src="images/drone.jfif" alt="Drone" class="modal-img" loading="lazy" />
+        <p class="modal-intro">Durant le premier semestre, j'ai réalisé un projet de drone. Ce projet consistait à programmer un drone en Python. J'étais en équipe de trois personnes pour ce projet.</p>
+        <p>Ce drone, équipé d'une caméra à l'avant, devait détecter une couleur spécifique (un plot dans notre cas), puis avancer, reculer et tourner autour de cette couleur tout en maintenant une certaine distance et en se positionnant de manière autonome.</p>
+        <p>Mon équipe n'a pas terminé ce projet, car il nous manquait des éléments et des notions en programmation. Le temps nous a également fait défaut.</p>
+        <p>Ce projet m'a permis de développer mes compétences en travail collaboratif, notamment la répartition des tâches et la communication technique au sein d'un groupe. J'ai également appris à effectuer des recherches sur des notions spécifiques de programmation, dans cette situation sur la bibliothèque de ce drone pour comprendre comment est ce qu'il fonctionne et comment organiser le programme.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Délestage -->
+  <div class="modal-overlay" id="modal-delestage" role="dialog" aria-modal="true" aria-labelledby="modal-delestage-title">
+    <div class="modal">
+      <button class="modal-close" aria-label="Fermer">&times;</button>
+      <div class="modal-header">
+        <span class="modal-category">Électrotechnique &amp; Énergie · BUT GEII</span>
+        <h2 id="modal-delestage-title">Système de Délestage Énergétique</h2>
+        <div class="modal-status ok">Réalisé</div>
+      </div>
+      <div class="modal-body">
+        <img src="images/automate.jpg" alt="Armoire électrique délestage" class="modal-img" loading="lazy" />
+        <p class="modal-intro">Le projet consiste à installer une gestion d'énergie dans un réseau électrique monophasé constitué d'un gradateur de lumière et d'un chauffage.</p>
+        <p>L'objectif était de réguler automatiquement la consommation électrique globale en pilotant un gradateur de puissance pour ne jamais dépasser un seuil critique P_max défini par l'utilisateur en implémentant un délesteur de puissance.</p>
+        <p>Le système était composé d'un gradateur de lumière ainsi que d'un chauffage. Si P_max est atteint la puissance du gradateur doit être réduite pour laisser la priorité au chauffage.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Soudure -->
+  <div class="modal-overlay" id="modal-soudure" role="dialog" aria-modal="true" aria-labelledby="modal-soudure-title">
+    <div class="modal">
+      <button class="modal-close" aria-label="Fermer">&times;</button>
+      <div class="modal-header">
+        <span class="modal-category">Électronique &amp; PCB · BUT GEII</span>
+        <h2 id="modal-soudure-title">Réalisation de Cartes Électroniques</h2>
+        <div class="modal-status ok">Réalisé</div>
+      </div>
+      <div class="modal-body">
+        <img src="images/carte-soudure.jpg" alt="Soudure" class="modal-img" loading="lazy" />
+        <p class="modal-intro">J'ai également réalisé un projet de soudure et de tests. Je devais souder les composants sur une carte électronique, puis en vérifier le fonctionnement.</p>
+        <p>Par exemple, j'ai soudé des boutons et des diodes, et une fois le circuit alimenté, j'ai dû relever des mesures comme la tension, puis vérifier le bon fonctionnement de chaque composant.</p>
+        <p>Pour ce projet, nous étions en équipe de deux personnes. Mon équipe a réussi à terminer ce projet sans trop de difficulté.</p>
+        <p>Cette expérience m'a permis d'acquérir le souci du détail et une méthode de contrôle systématique pour garantir la fiabilité d'un système.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
