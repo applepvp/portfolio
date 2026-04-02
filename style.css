@@ -1870,6 +1870,75 @@ button {
 }
 
 /* ========================================
+   MODAL ACTIONS (bouton En savoir plus)
+   ======================================== */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.btn-savoir-plus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: var(--accent-grad);
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-red);
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-savoir-plus::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-grad-hover);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-savoir-plus:hover::before {
+  opacity: 1;
+}
+
+.btn-savoir-plus svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+}
+
+.btn-savoir-plus:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-red-lg);
+}
+
+.btn-savoir-plus:hover svg {
+  transform: translateX(4px);
+}
+
+.btn-savoir-plus span,
+.btn-savoir-plus > *:not(svg) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Texte relatif au z-index */
+.btn-savoir-plus {
+  isolation: isolate;
+}
+
+/* ========================================
    REVEAL ANIMATIONS
    ======================================== */
 .reveal {
