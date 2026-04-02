@@ -10,33 +10,31 @@
 }
 
 :root {
-  --red: #e63030;
-  --red-light: #ff4d4d;
-  --red-dark: #b52020;
-  --orange: #ff6b35;
-  --orange-dark: #e55a22;
-  --accent-grad: linear-gradient(135deg, #e63030, #ff6b35);
-  --accent-grad-hover: linear-gradient(135deg, #ff4d4d, #e63030);
-  --red-glow: rgba(230, 48, 48, 0.18);
-  --bg: #f8f9fc;
-  --bg-2: #f0f2f8;
-  --bg-3: #e6eaf4;
-  --surface: rgba(255, 255, 255, 0.92);
+  --blue: #7bbcf0;
+  --blue-light: #a5f3e7;
+  --blue-dark: #5dade2;
+  --accent-grad: linear-gradient(135deg, #7bbcf0, #a5f3e7);
+  --accent-grad-hover: linear-gradient(135deg, #5dade2, #7bbcf0);
+  --blue-glow: rgba(123, 188, 240, 0.18);
+  --bg: #f8fafc;
+  --bg-2: #f0f7ff;
+  --bg-3: #e0f2fe;
+  --surface: rgba(255, 255, 255, 0.98);
   --surface-solid: #ffffff;
-  --surface-2: #eef1f8;
-  --border: rgba(0, 0, 0, 0.08);
-  --border-hover: rgba(230, 48, 48, 0.4);
-  --text: #1a1d2e;
-  --text-secondary: #4a5070;
-  --text-muted: #8b92a8;
+  --surface-2: #f1f5f9;
+  --border: rgba(0, 0, 0, 0.06);
+  --border-hover: rgba(123, 188, 240, 0.4);
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
   --white: #ffffff;
   --nav-h: 70px;
   --radius: 18px;
   --radius-sm: 10px;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.1);
-  --shadow-red: 0 8px 32px rgba(230, 48, 48, 0.22);
-  --shadow-red-lg: 0 16px 48px rgba(230, 48, 48, 0.2);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.06);
+  --shadow-blue: 0 8px 32px rgba(123, 188, 240, 0.15);
+  --shadow-blue-lg: 0 16px 48px rgba(123, 188, 240, 0.12);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -65,12 +63,27 @@ body {
   z-index: 2000;
   width: 0%;
   transition: width 0.1s linear;
-  box-shadow: 0 0 10px var(--red-glow);
+  box-shadow: 0 0 10px var(--blue-glow);
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+figcaption {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 0.5rem 0.25rem;
+  line-height: 1.4;
+  text-align: left;
 }
 
 a {
@@ -107,7 +120,7 @@ button {
    SELECTIONS
    ======================================== */
 ::selection {
-  background: rgba(230, 48, 48, 0.15);
+  background: rgba(123, 188, 240, 0.15);
   color: var(--text);
 }
 
@@ -129,9 +142,9 @@ button {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--red);
-  background: rgba(230, 48, 48, 0.06);
-  border: 1px solid rgba(230, 48, 48, 0.18);
+  color: var(--blue);
+  background: rgba(123, 188, 240, 0.06);
+  border: 1px solid rgba(123, 188, 240, 0.18);
   padding: 0.3rem 1rem;
   border-radius: 100px;
   margin-bottom: 1rem;
@@ -144,7 +157,7 @@ button {
   height: 6px;
   border-radius: 50%;
   background: var(--accent-grad);
-  box-shadow: 0 0 8px rgba(230, 48, 48, 0.4);
+  box-shadow: 0 0 8px rgba(123, 188, 240, 0.4);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -209,7 +222,7 @@ button {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(230, 48, 48, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(123, 188, 240, 0.2), transparent);
 }
 
 /* ========================================
@@ -234,13 +247,13 @@ button {
 .btn-primary {
   background: var(--accent-grad);
   color: var(--white);
-  box-shadow: var(--shadow-red);
+  box-shadow: var(--shadow-blue);
 }
 
 .btn-primary:hover {
   background: var(--accent-grad-hover);
   transform: translateY(-3px);
-  box-shadow: var(--shadow-red-lg);
+  box-shadow: var(--shadow-blue-lg);
 }
 
 .btn-outline {
@@ -251,17 +264,17 @@ button {
 }
 
 .btn-outline:hover {
-  border-color: var(--red);
-  color: var(--red);
+  border-color: var(--blue);
+  color: var(--blue);
   transform: translateY(-3px);
-  background: rgba(230, 48, 48, 0.04);
-  box-shadow: var(--shadow-red);
+  background: rgba(123, 188, 240, 0.04);
+  box-shadow: var(--shadow-blue);
 }
 
 .btn-details {
-  background: rgba(230, 48, 48, 0.05);
-  color: var(--red);
-  border: 1.5px solid rgba(230, 48, 48, 0.2);
+  background: rgba(123, 188, 240, 0.05);
+  color: var(--blue);
+  border: 1.5px solid rgba(123, 188, 240, 0.2);
   width: 100%;
   justify-content: space-between;
   margin-top: auto;
@@ -277,9 +290,9 @@ button {
 }
 
 .btn-details:hover {
-  background: rgba(230, 48, 48, 0.1);
-  border-color: rgba(230, 48, 48, 0.4);
-  box-shadow: 0 4px 20px rgba(230, 48, 48, 0.12);
+  background: rgba(123, 188, 240, 0.1);
+  border-color: rgba(123, 188, 240, 0.4);
+  box-shadow: 0 4px 20px rgba(123, 188, 240, 0.12);
 }
 
 .btn-details:hover svg {
@@ -344,7 +357,7 @@ button {
   border-radius: 50%;
   display: inline-block;
   animation: pulse 2.5s ease-in-out infinite;
-  box-shadow: 0 0 8px var(--red-glow);
+  box-shadow: 0 0 8px var(--blue-glow);
 }
 
 .nav-links {
@@ -438,8 +451,8 @@ button {
 .hero-bg-overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(230, 48, 48, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(255, 107, 53, 0.03) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 20% 50%, rgba(123, 188, 240, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(165, 243, 231, 0.03) 0%, transparent 50%);
   z-index: -1;
 }
 
@@ -487,7 +500,7 @@ button {
   position: relative;
   z-index: 1;
   border: 3px solid rgba(255, 255, 255, 0.8);
-  box-shadow: var(--shadow-red-lg);
+  box-shadow: var(--shadow-blue-lg);
 }
 
 .hero-badge {
@@ -498,9 +511,9 @@ button {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--red);
-  background: rgba(230, 48, 48, 0.06);
-  border: 1px solid rgba(230, 48, 48, 0.18);
+  color: var(--blue);
+  background: rgba(123, 188, 240, 0.06);
+  border: 1px solid rgba(123, 188, 240, 0.18);
   padding: 0.4rem 1.1rem;
   border-radius: 100px;
   margin-bottom: 1.75rem;
@@ -514,7 +527,7 @@ button {
   height: 6px;
   border-radius: 50%;
   background: var(--accent-grad);
-  box-shadow: 0 0 8px rgba(230, 48, 48, 0.4);
+  box-shadow: 0 0 8px rgba(123, 188, 240, 0.4);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -687,7 +700,7 @@ button {
 }
 
 .col-title svg {
-  color: var(--red);
+  color: var(--blue);
 }
 
 .timeline {
@@ -701,7 +714,7 @@ button {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, var(--red), var(--orange), rgba(230, 48, 48, 0.1), transparent);
+  background: linear-gradient(to bottom, var(--blue), var(--blue-light), rgba(123, 188, 240, 0.1), transparent);
   border-radius: 2px;
 }
 
@@ -724,7 +737,7 @@ button {
 }
 
 .timeline-item:hover .timeline-body {
-  border-color: rgba(230, 48, 48, 0.2);
+  border-color: rgba(123, 188, 240, 0.2);
   box-shadow: var(--shadow-lg);
   transform: translateX(3px);
 }
@@ -734,23 +747,23 @@ button {
   height: 22px;
   border-radius: 50%;
   background: var(--white);
-  border: 2.5px solid var(--red);
+  border: 2.5px solid var(--blue);
   flex-shrink: 0;
   margin-top: 16px;
   position: relative;
   z-index: 1;
-  box-shadow: 0 0 0 4px rgba(230, 48, 48, 0.1);
+  box-shadow: 0 0 0 4px rgba(123, 188, 240, 0.1);
   transition: var(--transition);
 }
 
 .timeline-item:hover .timeline-dot {
-  box-shadow: 0 0 0 6px rgba(230, 48, 48, 0.15);
+  box-shadow: 0 0 0 6px rgba(123, 188, 240, 0.15);
   transform: scale(1.15);
 }
 
 .timeline-dot.accent {
   background: var(--accent-grad);
-  border-color: var(--orange);
+  border-color: var(--blue-light);
 }
 
 .timeline-date {
@@ -759,7 +772,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue);
   margin-bottom: 0.35rem;
 }
 
@@ -781,7 +794,7 @@ button {
 }
 
 .timeline-place svg {
-  color: var(--red);
+  color: var(--blue);
   flex-shrink: 0;
 }
 
@@ -833,7 +846,7 @@ button {
 .project-card:hover {
   border-color: transparent;
   outline: 1.5px solid transparent;
-  box-shadow: 0 0 0 2px rgba(230, 48, 48, 0.35), var(--shadow-red-lg);
+  box-shadow: 0 0 0 2px rgba(123, 188, 240, 0.35), var(--shadow-blue-lg);
 }
 
 .project-img-wrap {
@@ -868,7 +881,7 @@ button {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #fff;
-  background: rgba(230, 48, 48, 0.75);
+  background: rgba(123, 188, 240, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.25rem 0.7rem;
   border-radius: 100px;
@@ -938,9 +951,9 @@ button {
 .tech-badge {
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--red);
-  background: rgba(230, 48, 48, 0.06);
-  border: 1px solid rgba(230, 48, 48, 0.18);
+  color: var(--blue);
+  background: rgba(123, 188, 240, 0.06);
+  border: 1px solid rgba(123, 188, 240, 0.18);
   padding: 0.2rem 0.65rem;
   border-radius: 100px;
 }
@@ -966,7 +979,7 @@ button {
 }
 
 .skills-block-title svg {
-  color: var(--red);
+  color: var(--blue);
 }
 
 .skills-cards {
@@ -1022,7 +1035,7 @@ button {
 }
 
 .skill-card:hover {
-  border-color: rgba(230, 48, 48, 0.15);
+  border-color: rgba(123, 188, 240, 0.15);
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
@@ -1082,7 +1095,7 @@ button {
 }
 
 .softskill-item:hover {
-  border-color: rgba(230, 48, 48, 0.2);
+  border-color: rgba(123, 188, 240, 0.2);
   box-shadow: var(--shadow-lg);
   transform: translateX(4px);
 }
@@ -1188,7 +1201,7 @@ button {
 .sport-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(230, 48, 48, 0.2);
+  border-color: rgba(123, 188, 240, 0.2);
 }
 
 .sport-card-icon {
@@ -1218,7 +1231,7 @@ button {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-red-lg);
+  box-shadow: var(--shadow-blue-lg);
   height: 400px;
   width: 100%;
 }
@@ -1281,7 +1294,7 @@ button {
 }
 
 .carousel-btn:hover {
-  background: var(--red);
+  background: var(--blue);
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -1301,7 +1314,7 @@ button {
   background: rgba(255, 255, 255, 0.95);
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(230, 48, 48, 0.2);
+  border: 1px solid rgba(123, 188, 240, 0.2);
   box-shadow: var(--shadow);
   backdrop-filter: blur(8px);
 }
@@ -1338,10 +1351,12 @@ button {
   box-shadow: var(--shadow-md);
   height: 250px;
 }
+
 .hero-portrait {
-    /* Ajuste le degré selon le sens de la photo (90deg, 180deg, 270deg ou -90deg) */
-    transform: rotate(90deg);
+  /* Ajuste le degré selon le sens de la photo (90deg, 180deg, 270deg ou -90deg) */
+  transform: rotate(90deg);
 }
+
 .voyage-photo {
   width: 100%;
   height: 100%;
@@ -1374,8 +1389,8 @@ button {
 
 .activite-mini-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-red-lg);
-  border-color: rgba(230, 48, 48, 0.2);
+  box-shadow: var(--shadow-blue-lg);
+  border-color: rgba(123, 188, 240, 0.2);
 }
 
 .activite-mini-icon {
@@ -1469,7 +1484,7 @@ button {
 .contact-card:hover {
   border-color: var(--border-hover);
   transform: translateX(4px);
-  box-shadow: var(--shadow-red);
+  box-shadow: var(--shadow-blue);
 }
 
 .contact-card.no-link {
@@ -1488,10 +1503,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(230, 48, 48, 0.06);
-  border: 1px solid rgba(230, 48, 48, 0.15);
+  background: rgba(123, 188, 240, 0.06);
+  border: 1px solid rgba(123, 188, 240, 0.15);
   border-radius: var(--radius-sm);
-  color: var(--red);
+  color: var(--blue);
   flex-shrink: 0;
 }
 
@@ -1518,13 +1533,13 @@ button {
 }
 
 .contact-cta-card {
-  background: linear-gradient(135deg, rgba(230, 48, 48, 0.05) 0%, rgba(255, 107, 53, 0.04) 100%);
-  border: 1px solid rgba(230, 48, 48, 0.15);
+  background: linear-gradient(135deg, rgba(123, 188, 240, 0.05) 0%, rgba(165, 243, 231, 0.04) 100%);
+  border: 1px solid rgba(123, 188, 240, 0.15);
   border-radius: var(--radius);
   padding: 2.5rem;
   position: sticky;
   top: calc(var(--nav-h) + 1rem);
-  box-shadow: var(--shadow-red);
+  box-shadow: var(--shadow-blue);
 }
 
 .contact-cta-card h3 {
@@ -1608,7 +1623,7 @@ button {
 }
 
 .footer-nav a:hover {
-  color: var(--red);
+  color: var(--blue);
 }
 
 .footer-right {
@@ -1629,9 +1644,9 @@ button {
 }
 
 .footer-social:hover {
-  border-color: var(--red);
-  color: var(--red);
-  background: rgba(230, 48, 48, 0.06);
+  border-color: var(--blue);
+  color: var(--blue);
+  background: rgba(123, 188, 240, 0.06);
 }
 
 .footer-bottom {
@@ -1722,15 +1737,15 @@ button {
 }
 
 .modal-close:hover {
-  background: rgba(230, 48, 48, 0.08);
-  border-color: var(--red);
-  color: var(--red);
+  background: rgba(123, 188, 240, 0.08);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .modal-header {
   padding: 2rem 2rem 1.5rem;
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(135deg, rgba(230, 48, 48, 0.03), rgba(255, 107, 53, 0.02));
+  background: linear-gradient(135deg, rgba(123, 188, 240, 0.03), rgba(165, 243, 231, 0.02));
 }
 
 .modal-category {
@@ -1739,7 +1754,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--blue);
   margin-bottom: 0.5rem;
 }
 
@@ -1818,9 +1833,9 @@ button {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--red);
-  background: rgba(230, 48, 48, 0.08);
-  border: 1px solid rgba(230, 48, 48, 0.18);
+  color: var(--blue);
+  background: rgba(123, 188, 240, 0.08);
+  border: 1px solid rgba(123, 188, 240, 0.18);
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -1891,7 +1906,7 @@ button {
   background: var(--accent-grad);
   border: 2px solid transparent;
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-red);
+  box-shadow: var(--shadow-blue);
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition);
@@ -1920,7 +1935,7 @@ button {
 
 .btn-savoir-plus:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-red-lg);
+  box-shadow: var(--shadow-blue-lg);
 }
 
 .btn-savoir-plus:hover svg {
@@ -1928,7 +1943,7 @@ button {
 }
 
 .btn-savoir-plus span,
-.btn-savoir-plus > *:not(svg) {
+.btn-savoir-plus>*:not(svg) {
   position: relative;
   z-index: 1;
 }
