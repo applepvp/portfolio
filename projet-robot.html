@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Détail du projet Robot Mobile Autonome — Enzo Morelli, BUT GEII S2, IUT de Tarbes. Filoguidage, lignoguidage, radioguidage et association des parcours en Python / MicroPython." />
+  <title>Projet Robot Mobile — Enzo Morelli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page-specific overrides ── */
+    .prj-hero {
+      position: relative;
+      padding: calc(var(--nav-h) + 4rem) 1.5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      transition: var(--transition);
+      padding: 0.5rem 1rem 0.5rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      width: fit-content;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .back-link:hover {
+      color: var(--red);
+      border-color: rgba(230, 48, 48, 0.35);
+      transform: translateX(-3px);
+    }
+
+    .back-link svg {
+      transition: transform 0.25s ease;
+    }
+
+    .back-link:hover svg {
+      transform: translateX(-3px);
+    }
+
+    /* ── Hero card ── */
+    .prj-hero-card {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .prj-hero-img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .prj-hero-content {
+      padding: 2.5rem 2.5rem 2.5rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    .prj-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .prj-breadcrumb-sep {
+      color: var(--text-muted);
+    }
+
+    .prj-hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .prj-hero-title .accent {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .prj-hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .prj-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--bg-2);
+      color: var(--text-secondary);
+    }
+
+    .meta-badge.accent-badge {
+      color: var(--red);
+      background: rgba(230, 48, 48, 0.06);
+      border-color: rgba(230, 48, 48, 0.2);
+    }
+
+    .meta-badge.ok-badge {
+      color: #16a34a;
+      background: rgba(22, 163, 74, 0.08);
+      border-color: rgba(22, 163, 74, 0.25);
+    }
+
+    /* ── Sections de contenu ── */
+    .prj-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem 6rem;
+    }
+
+    .prj-section {
+      margin-top: 4rem;
+    }
+
+    .prj-section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(230, 48, 48, 0.06);
+      border: 1px solid rgba(230, 48, 48, 0.18);
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .prj-section-label::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-grad);
+      box-shadow: 0 0 8px rgba(230, 48, 48, 0.4);
+    }
+
+    .prj-section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    /* ── Contexte / intro ── */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .intro-text p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: calc(var(--nav-h) + 1.5rem);
+    }
+
+    .info-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .info-value {
+      font-weight: 700;
+      color: var(--text);
+      text-align: right;
+    }
+
+    .info-value.red {
+      color: var(--red);
+    }
+
+    /* ── Parcours cards ── */
+    .parcours-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* ── Lien vidéo parcours ── */
+    .parcours-video-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--red);
+      text-decoration: none;
+      padding: 0.45rem 0.9rem;
+      border: 1.5px solid rgba(230, 48, 48, 0.25);
+      border-radius: 100px;
+      background: rgba(230, 48, 48, 0.05);
+      transition: var(--transition);
+      margin-top: 0.25rem;
+      width: fit-content;
+    }
+
+    .parcours-video-link:hover {
+      background: rgba(230, 48, 48, 0.1);
+      border-color: rgba(230, 48, 48, 0.45);
+      transform: translateX(3px);
+    }
+
+    /* ── Temps tag ── */
+    .parcours-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      margin-bottom: 0.25rem;
+    }
+
+    .parcours-time.ok { color: #16a34a; background: rgba(22,163,74,0.07); border-color: rgba(22,163,74,0.2); }
+    .parcours-time.warn { color: #d97706; background: rgba(217,119,6,0.07); border-color: rgba(217,119,6,0.2); }
+    .parcours-time.partial { color: var(--red); background: rgba(230,48,48,0.06); border-color: rgba(230,48,48,0.2); }
+
+    @media (max-width: 700px) {
+      .parcours-cards { grid-template-columns: 1fr; }
+    }
+
+    .parcours-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parcours-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-grad);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .parcours-card:hover::before {
+      opacity: 1;
+    }
+
+    .parcours-card:hover {
+      border-color: rgba(230, 48, 48, 0.25);
+      box-shadow: var(--shadow-red-lg);
+      transform: translateY(-5px);
+    }
+
+    .parcours-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .parcours-icon {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .parcours-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .parcours-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .parcours-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .step-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(230, 48, 48, 0.1);
+      border: 1.5px solid rgba(230, 48, 48, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .step-dot::after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    /* ── Organisation / Équipe ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .team-card:hover {
+      border-color: rgba(230, 48, 48, 0.2);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+
+    .team-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent-grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: white;
+      margin: 0 auto 1rem;
+      box-shadow: var(--shadow-red);
+    }
+
+    .team-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .team-card .team-role {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .team-card.me .team-avatar {
+      box-shadow: 0 0 0 3px rgba(230, 48, 48, 0.25), var(--shadow-red);
+    }
+
+    .team-card.me h4 {
+      color: var(--red);
+    }
+
+    /* ── Compétences acquises ── */
+    .skills-acquired {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-acquired-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+
+    .skill-acquired-card:hover {
+      border-color: rgba(230, 48, 48, 0.2);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .skill-acquired-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .skill-acquired-card strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-acquired-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Tech stack ── */
+    .tech-stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .tech-item {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .tech-item:hover {
+      border-color: rgba(230, 48, 48, 0.3);
+      box-shadow: var(--shadow-red);
+      transform: translateY(-3px);
+    }
+
+    .tech-item-icon {
+      font-size: 1.6rem;
+    }
+
+    .tech-item-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .tech-item-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    /* ── Bilan ── */
+    .bilan-card {
+      background: linear-gradient(135deg, rgba(230, 48, 48, 0.04), rgba(255, 107, 53, 0.03));
+      border: 1.5px solid rgba(230, 48, 48, 0.18);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bilan-card::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.5rem;
+      font-size: 8rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.15;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .bilan-card p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      font-style: italic;
+      position: relative;
+    }
+
+    /* ── CTA bas de page ── */
+    .prj-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      margin-top: 4rem;
+      box-shadow: var(--shadow-lg);
+      flex-wrap: wrap;
+    }
+
+    .prj-cta h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .prj-cta p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .prj-cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    /* ── Divider ── */
+    .prj-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 3.5rem 0 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .prj-hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .prj-hero-img {
+        min-height: 220px;
+        max-height: 260px;
+      }
+
+      .prj-hero-content {
+        padding: 2rem;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        position: static;
+      }
+
+      .parcours-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .prj-cta {
+        padding: 1.5rem;
+      }
+
+      .prj-cta-actions {
+        width: 100%;
+      }
+
+      .prj-cta-actions .btn {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <a href="index.html#accueil" class="nav-logo">
+        <span class="logo-em">EM</span>
+        <span class="logo-dot"></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
+        <li><a href="index.html#parcours" class="nav-link">Mon Parcours</a></li>
+        <li><a href="index.html#projets" class="nav-link active">Mes Projets</a></li>
+        <li><a href="index.html#competences" class="nav-link">Compétences</a></li>
+        <li><a href="index.html#activites" class="nav-link">Centres d'activités</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO PROJET ===== -->
+  <div class="prj-hero">
+
+    <a href="index.html#projets" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      Retour aux projets
+    </a>
+
+    <div class="prj-hero-card reveal">
+      <img src="images/robot.png" alt="Robot Mobile Autonome" class="prj-hero-img" />
+      <div class="prj-hero-content">
+        <div class="prj-breadcrumb">
+          <span>Robotique &amp; Automatisme</span>
+          <span class="prj-breadcrumb-sep">·</span>
+          <span>BUT GEII — S2</span>
+        </div>
+        <h1 class="prj-hero-title">
+          Robot Mobile<br/>
+          <span class="accent">Autonome</span>
+        </h1>
+        <p class="prj-hero-desc">
+          Programmation d'un robot capable de suivre quatre parcours distincts. Un projet d'équipe réalisé en second semestre de BUT GEII, alliant électronique embarquée, capteurs et algorithmique en Python / MicroPython.
+        </p>
+        <div class="prj-hero-meta">
+          <span class="meta-badge accent-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"/></svg>
+            2024–2025
+          </span>
+          <span class="meta-badge accent-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Équipe de 4
+          </span>
+          <span class="meta-badge accent-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            130h totales
+          </span>
+          <span class="meta-badge">Python</span>
+          <span class="meta-badge">MicroPython</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main class="prj-content">
+
+    <!-- ── Contexte du projet ── -->
+    <section class="prj-section">
+      <span class="prj-section-label">Contexte</span>
+      <h2 class="prj-section-title">Présentation du projet</h2>
+
+      <div class="intro-grid">
+        <div class="intro-text reveal">
+          <p>
+            En second semestre de BUT GEII, notre équipe de quatre étudiants a dû concevoir et programmer un robot mobile capable d'effectuer trois parcours distincts. Ce projet constituait notre <strong>projet final du semestre</strong>, évalué sur la réussite complète de chaque parcours.
+          </p>
+          <p>
+            Le robot devait être capable, selon le parcours, de suivre un <strong>fil magnétique enfoui dans le sol</strong> (filoguidage), de détecter et suivre une <strong>ligne tracée au sol</strong> (lignoguidage), ou encore d'être guidé à distance via des <strong>commandes radio</strong> (radioguidage).
+          </p>
+          <p>
+            Chaque parcours était décomposé en <strong>plusieurs parties</strong>, elles-mêmes divisées en <strong>étapes précises</strong>, ce qui nous a contraints à adopter une approche méthodique et à bien gérer notre temps tout au long du projet.
+          </p>
+          <p>
+            Ce projet m'a permis d'acquérir des compétences concrètes en <strong>programmation embarquée</strong>, en <strong>travail collaboratif</strong> et en <strong>gestion de projet</strong> dans un contexte technique contraint.
+          </p>
+        </div>
+
+        <div class="info-card reveal">
+          <h4>Informations clés</h4>
+          <div class="info-row">
+            <span class="info-label">Semestre</span>
+            <span class="info-value red">BUT GEII — S2</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Durée totale</span>
+            <span class="info-value red">130h</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Taille d'équipe</span>
+            <span class="info-value">4 étudiants</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Parcours finalisés</span>
+            <span class="info-value" style="color:#d97706;">3 / 4</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Résultat</span>
+            <span class="info-value" style="color: #d97706;">Partiellement réussi</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Langage</span>
+            <span class="info-value">Python / MicroPython</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Établissement</span>
+            <span class="info-value">IUT de Tarbes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="prj-divider" />
+
+    <!-- ── Les 4 parcours ── -->
+    <section class="prj-section">
+      <span class="prj-section-label">Parcours réalisés</span>
+      <h2 class="prj-section-title">Les quatre étapes du projet</h2>
+
+      <div class="parcours-cards">
+
+        <!-- Parcours 1 : Filoguidage -->
+        <div class="parcours-card reveal">
+          <div>
+            <div class="parcours-num">01</div>
+            <div class="parcours-icon">🧲</div>
+          </div>
+          <h3>Filoguidage</h3>
+          <span class="parcours-time ok">✓ 33h réalisées sur 52h prévues</span>
+          <p>
+            Dans cette première partie, le robot devait suivre un <strong>fil magnétique dissimulé sous un tapis</strong> grâce à deux bobines situées à l'avant, lui permettant de détecter et suivre le signal. À la fin du parcours, s'il détecte un obstacle à moins de 30 cm, il doit faire demi-tour puis s'arrêter.
+          </p>
+          <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65;">
+            Deux de mes camarades se sont chargés de souder la carte électronique ainsi que de positionner les bobines. Pour ma part, j'ai programmé cette partie en Python avec Hugo Michel. Nous avons réussi sans trop de difficulté.
+          </p>
+          <div class="parcours-steps">
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Détection du fil via deux bobines à l'avant</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Correction de trajectoire en temps réel</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Détection d'obstacle &lt; 30 cm → demi-tour et arrêt</span>
+            </div>
+          </div>
+          <a href="https://youtube.com/shorts/PFwQIN92jPg" target="_blank" rel="noopener" class="parcours-video-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            Voir la vidéo du parcours
+          </a>
+        </div>
+
+        <!-- Parcours 2 : Lignoguidage -->
+        <div class="parcours-card reveal">
+          <div>
+            <div class="parcours-num">02</div>
+            <div class="parcours-icon">🖤</div>
+          </div>
+          <h3>Lignoguidage</h3>
+          <span class="parcours-time warn">⚠ 50h réalisées sur 52h prévues</span>
+          <p>
+            Cette seconde partie est similaire à la première, sauf que le robot doit suivre une <strong>ligne blanche au sol</strong> et non un fil. Il dispose d'une carte électronique à l'avant équipée de LEDs qui détectent la ligne et avancent en conséquence.
+          </p>
+          <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65;">
+            Deux camarades étaient chargés de souder la carte, Hugo Michel et moi devions la programmer. Cette tâche était plus complexe : le robot ne suivait pas la ligne correctement — soit trop rapide, soit il ne tournait pas assez. Nous avons tout de même réussi.
+          </p>
+          <div class="parcours-steps">
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Détection de la ligne blanche via LEDs IR</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Correction vitesse / direction en temps réel</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Gestion des courbes et variations de vitesse</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/shorts/lftDFShzL_A" target="_blank" rel="noopener" class="parcours-video-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            Voir la vidéo du parcours
+          </a>
+        </div>
+
+        <!-- Parcours 3 : Radioguidage -->
+        <div class="parcours-card reveal">
+          <div>
+            <div class="parcours-num">03</div>
+            <div class="parcours-icon">🧭</div>
+          </div>
+          <h3>Radioguidage</h3>
+          <span class="parcours-time warn">⚠ 37h réalisées sur 36h prévues</span>
+          <p>
+            Dans cette partie, le robot devait être capable de <strong>revenir à un endroit défini</strong> (le centre du parcours), peu importe où il était placé. Toute l'équipe aidait à programmer, ce qui a permis d'avancer vite.
+          </p>
+          <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65;">
+            Nous n'avons pas eu trop de problèmes, seulement la boussole du robot qui n'était pas très précise — le robot ne revenait donc pas au centre à tous les coups. Nous avons légèrement dépassé le temps prévu.
+          </p>
+          <div class="parcours-steps">
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Lecture de la boussole embarquée</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Calcul du cap vers le centre du parcours</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Navigation autonome vers la cible</span>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/shorts/-pZpfM6zYTI" target="_blank" rel="noopener" class="parcours-video-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            Voir la vidéo du parcours
+          </a>
+        </div>
+
+        <!-- Parcours 4 : Association -->
+        <div class="parcours-card reveal">
+          <div>
+            <div class="parcours-num">04</div>
+            <div class="parcours-icon">🔗</div>
+          </div>
+          <h3>Association des trois parcours</h3>
+          <span class="parcours-time partial">✗ Non finalisé — 10h / 44h prévues</span>
+          <p>
+            Pour cette dernière tâche, notre groupe devait <strong>associer les trois parcours</strong> : le robot commence par le filoguidage, continue avec le lignoguidage et termine par le radioguidage, en séquence automatique.
+          </p>
+          <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.65;">
+            Cette partie était la plus complexe côté programmation. Sur sept étapes prévues pour cette tâche, nous avons consacré 10 heures à une seule étape alors que 44 heures étaient prévues pour l'ensemble. Nous n'avons donc pas pu finaliser cette partie.
+          </p>
+          <div class="parcours-steps">
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Enchaînement automatique des 3 modes</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot"></div>
+              <span>Transitions filoguidage → lignoguidage → radioguidage</span>
+            </div>
+            <div class="step-item">
+              <div class="step-dot" style="border-color:rgba(230,48,48,0.5);background:rgba(230,48,48,0.08);"></div>
+              <span style="color:var(--red);">Non finalisé — 1 étape sur 7 réalisée</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="prj-divider" />
+
+    <!-- ── Équipe ── -->
+    <section class="prj-section">
+      <span class="prj-section-label">Organisation</span>
+      <h2 class="prj-section-title">Équipe de 4 étudiants</h2>
+
+      <div class="team-grid">
+        <div class="team-card me reveal">
+          <div class="team-avatar">EM</div>
+          <h4>Morelli Enzo</h4>
+          <span class="team-role">💻 Programmation (Python)</span>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">HM</div>
+          <h4>Hugo Michel</h4>
+          <span class="team-role">💻 Programmation (Python)</span>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #10b981, #34d399);">JK</div>
+          <h4>Jia-Chang Kuai</h4>
+          <span class="team-role">🔧 Soudure &amp; Technique</span>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">RE</div>
+          <h4>Roulleaux Eliot</h4>
+          <span class="team-role">🔧 Soudure &amp; Technique</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="prj-divider" />
+
+    <!-- ── Technologies ── -->
+    <section class="prj-section">
+      <span class="prj-section-label">Technologies</span>
+      <h2 class="prj-section-title">Stack technique utilisée</h2>
+
+      <div class="tech-stack-grid">
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">🐍</div>
+          <div>
+            <div class="tech-item-name">Python</div>
+            <div class="tech-item-desc">Langage principal de programmation</div>
+          </div>
+        </div>
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">⚡</div>
+          <div>
+            <div class="tech-item-name">MicroPython</div>
+            <div class="tech-item-desc">Python embarqué sur le microcontrôleur</div>
+          </div>
+        </div>
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">🔌</div>
+          <div>
+            <div class="tech-item-name">Bobines / Capteurs inductifs</div>
+            <div class="tech-item-desc">Détection du fil magnétique</div>
+          </div>
+        </div>
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">💡</div>
+          <div>
+            <div class="tech-item-name">LEDs IR</div>
+            <div class="tech-item-desc">Détection de ligne blanche au sol</div>
+          </div>
+        </div>
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">🧭</div>
+          <div>
+            <div class="tech-item-name">Boussole embarquée</div>
+            <div class="tech-item-desc">Orientation pour le radioguidage</div>
+          </div>
+        </div>
+        <div class="tech-item reveal">
+          <div class="tech-item-icon">🔧</div>
+          <div>
+            <div class="tech-item-name">Carte électronique (soudée)</div>
+            <div class="tech-item-desc">Réalisée par Jia-Chang &amp; Roulleaux</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="prj-divider" />
+
+    <!-- ── Compétences acquises ── -->
+    <section class="prj-section">
+      <span class="prj-section-label">Apports</span>
+      <h2 class="prj-section-title">Compétences développées</h2>
+
+      <div class="skills-acquired">
+        <div class="skill-acquired-card reveal">
+          <div class="skill-acquired-icon">💻</div>
+          <div>
+            <strong>Programmation embarquée</strong>
+            <p>Développement d'algorithmes en Python / MicroPython pour la lecture de capteurs et le pilotage de moteurs avec des contraintes de réactivité strictes.</p>
+          </div>
+        </div>
+        <div class="skill-acquired-card reveal">
+          <div class="skill-acquired-icon">📊</div>
+          <div>
+            <strong>Algorithmique de contrôle</strong>
+            <p>Implémentation d'un correcteur de trajectoire basé sur la lecture de capteurs, avec calcul d'erreur et ajustement dynamique de la vitesse de chaque moteur.</p>
+          </div>
+        </div>
+        <div class="skill-acquired-card reveal">
+          <div class="skill-acquired-icon">🤝</div>
+          <div>
+            <strong>Travail en équipe</strong>
+            <p>Coordination de 4 personnes avec répartition claire des tâches : programmation, électronique, tests et documentation avancaient en parallèle.</p>
+          </div>
+        </div>
+        <div class="skill-acquired-card reveal">
+          <div class="skill-acquired-icon">⏱️</div>
+          <div>
+            <strong>Gestion du temps</strong>
+            <p>Le projet, structuré en plusieurs parties et étapes, exigeait une planification rigoureuse pour tenir les délais de chaque livrable intermédiaire.</p>
+          </div>
+        </div>
+        <div class="skill-acquired-card reveal">
+          <div class="skill-acquired-icon">🔍</div>
+          <div>
+            <strong>Débogage &amp; Investigation</strong>
+            <p>Identification des dysfonctionnements capteurs, analyse des signaux et correction itérative du code pour atteindre un comportement fiable du robot.</p>
+          </div>
+        </div>
+        <div class="skill-acquired-card reveal">
+          <div class="skill-acquired-icon">📋</div>
+          <div>
+            <strong>Rigueur technique</strong>
+            <p>Chaque étape du parcours nécessitait une validation précise avant la suivante, développant un sens aigu du détail et de la méthode.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="prj-divider" />
+
+    <!-- ── Bilan personnel ── -->
+    <section class="prj-section">
+      <span class="prj-section-label">Bilan personnel</span>
+      <h2 class="prj-section-title">Ce que ce projet m'a apporté</h2>
+
+      <div class="bilan-card reveal">
+        <p>
+          Ce projet de robot mobile a été l'un des plus complets et des plus formateurs de mon parcours en BUT GEII. La nécessité de maîtriser en même temps l'électronique embarquée, la programmation en Python / MicroPython et la coordination d'équipe m'a poussé à sortir de ma zone de confort. La réussite de trois parcours sur quatre — filoguidage, lignoguidage et radioguidage — a validé nos compétences techniques et notre capacité à livrer dans les délais. L'association des trois parcours, non finalisée, reste une leçon de gestion de la complexité que je retiens pour mes futurs projets.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <div class="prj-cta reveal">
+      <div>
+        <h3>Voir d'autres projets</h3>
+        <p>Découvrez mes autres réalisations techniques en BUT GEII.</p>
+      </div>
+      <div class="prj-cta-actions">
+        <a href="index.html#projets" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          Retour aux projets
+        </a>
+        <a href="index.html#contact" class="btn btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Me contacter
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">EM.</span>
+        <p>Enzo Morelli · Étudiant BUT GEII<br>IUT de Tarbes — 2024-2027</p>
+      </div>
+      <div class="footer-center">
+        <nav class="footer-nav">
+          <a href="index.html#accueil">Accueil</a>
+          <a href="index.html#parcours">Parcours</a>
+          <a href="index.html#projets">Projets</a>
+          <a href="index.html#competences">Compétences</a>
+          <a href="index.html#activites">Centres d'activités</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-right">
+        <a href="https://fr.linkedin.com/in/enzo-morelli-185282347" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:enzomirell31@gmail.com" class="footer-social" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Enzo Morelli · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Navbar scroll ──────────────────────────
+    const navbar = document.getElementById('navbar');
+    const burger = document.getElementById('navBurger');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    burger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+      const spans = burger.querySelectorAll('span');
+      if (open) {
+        spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+      } else {
+        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+
+    // ── Scroll Progress Bar ────────────────────
+    (function () {
+      const bar = document.createElement('div');
+      bar.id = 'scroll-progress';
+      document.body.prepend(bar);
+      window.addEventListener('scroll', () => {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (docH > 0 ? (window.scrollY / docH) * 100 : 0) + '%';
+      }, { passive: true });
+    })();
+
+    // ── Reveal on scroll ──────────────────────
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      els.forEach((el, i) => {
+        el.style.transitionDelay = (i % 5) * 80 + 'ms';
+      });
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+</body>
+</html>
