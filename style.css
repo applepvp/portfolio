@@ -1341,11 +1341,6 @@ button {
 .hero-portrait {
     /* Ajuste le degré selon le sens de la photo (90deg, 180deg, 270deg ou -90deg) */
     transform: rotate(90deg);
-    
-    /* Optionnel : Si l'image est déformée ou sort du cadre après rotation */
-    display: block;
-    max-width: 100%;
-    height: auto;
 }
 .voyage-photo {
   width: 100%;
