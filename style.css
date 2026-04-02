@@ -1338,7 +1338,9 @@ button {
   box-shadow: var(--shadow-md);
   height: 250px;
 }
-
+.photo-enzo.jpg {
+  transform: rotate(90deg);
+}
 .voyage-photo {
   width: 100%;
   height: 100%;
